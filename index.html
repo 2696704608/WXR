@@ -3,74 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人网页</title>
+    <title>音乐播放器</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>我的个人网页</h1>
-            </div>
+    <div class="container">
+        <header>
+            <h1>我的音乐播放器</h1>
+        </header>
+        <aside class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="#about">简介</a></li>
-                    <li><a href="#education">教育背景</a></li>
-                    <li><a href="#experience">工作经验</a></li>
-                    <li><a href="#projects">项目展示</a></li>
-                    <li><a href="#skills">技能列表</a></li>
-                    <li><a href="#contact">联系方式</a></li>
+                    <li>为我推荐</li>
+                    <li>云音乐精选</li>
+                    <li>私人定制</li>
+                    <li>社区</li>
+                    <li>我喜欢的音乐</li>
+                    <li>最近播放</li>
+                    <li>我的收藏</li>
                 </ul>
             </nav>
-        </div>
-    </header>
-
-    <section id="about" class="container">
-        <h2>关于我</h2>
-        <p>这里是我的简介...</p>
-    </section>
-
-    <section id="education" class="container">
-        <h2>教育背景</h2>
-        <p>这里是我的教育背景...</p>
-    </section>
-
-    <section id="experience" class="container">
-        <h2>工作经验</h2>
-        <p>这里是我的工作经验...</p>
-    </section>
-
-    <section id="projects" class="container">
-        <h2>项目展示</h2>
-        <p>这里是我的项目展示...</p>
-    </section>
-
-    <section id="skills" class="container">
-        <h2>技能列表</h2>
-        <p>这里是我的技能列表...</p>
-    </section>
-
-    <section id="contact" class="container">
-        <h2>联系方式</h2>
-        <div class="contact-info">
-            <div>
-                <img src="email.png" alt="Email">
-                <p>email@example.com</p>
+        </aside>
+        <main>
+            <section class="recommendations">
+                <h2>推荐歌曲</h2>
+                <div class="song-list">
+                    <div class="song" onclick="playMusic('music1.mp3')">
+                        <img src="cover1.jpg" alt="歌曲封面">
+                        <p>歌曲名称1 - 歌手1</p>
+                    </div>
+                    <div class="song" onclick="playMusic('music2.mp3')">
+                        <img src="cover2.jpg" alt="歌曲封面">
+                        <p>歌曲名称2 - 歌手2</p>
+                    </div>
+                    <!-- 添加更多歌曲项 -->
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="music-player">
+                <audio id="audio-player" controls>
+                    <source id="audio-source" src="" type="audio/mpeg">
+                    您的浏览器不支持音频元素。
+                </audio>
             </div>
-            <div>
-                <img src="qq.png" alt="QQ">
-                <p>QQ: 123456789</p>
-            </div>
-            <div>
-                <img src="wechat.png" alt="微信">
-                <p>微信: wechatid</p>
-            </div>
-        </div>
-    </section>
+        </footer>
+    </div>
 
-    <footer>
-        <p>版权所有 &copy; 2024</p>
-    </footer>
+    <script>
+        function playMusic(file) {
+            const audioPlayer = document.getElementById('audio-player');
+            const audioSource = document.getElementById('audio-source');
+            audioSource.src = file;
+            audioPlayer.load();
+            audioPlayer.play();
+        }
+    </script>
 </body>
 </html>
